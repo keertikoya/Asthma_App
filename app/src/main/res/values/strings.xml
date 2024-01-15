@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">AsthmaInhaler</string>
+
+    <string-array name="pollen_array">
+        <item>Pollen (None)</item>
+        <item>Pollen (Light)</item>
+        <item>Pollen (Moderate)</item>
+        <item>Pollen (Severe)</item>
+    </string-array>
+
+    <string-array name="dust_array">
+        <item>Dust (None)</item>
+        <item>Dust (Light)</item>
+        <item>Dust (Moderate)</item>
+        <item>Dust (Severe)</item>
+    </string-array>
+
+    <string-array name="smoke_array">
+        <item>Smoke (None)</item>
+        <item>Smoke (Light)</item>
+        <item>Smoke (Moderate)</item>
+        <item>Smoke (Severe)</item>
+    </string-array>
+
+    <string-array name="weather_array">
+        <item>Cold Weather (None)</item>
+        <item>Cold Weather (Light)</item>
+        <item>Cold Weather (Moderate)</item>
+        <item>Cold Weather (Severe)</item>
+    </string-array>
+
+    <string-array name="trigger_array">
+        <item>Pollen</item>
+        <item>Dust</item>
+        <item>Smoke</item>
+        <item>Cold Weather</item>
+    </string-array>
+
+    <string name="asthma_overview">
+        Asthma is a disease that affects your lungs. It causes repeated episodes of wheezing, breathlessness, chest tightness, and nighttime or early morning coughing. Asthma can be controlled by taking medicine and avoiding the triggers that can cause an attack.
+    </string>
+
+    <string name="asthma_symptoms">
+        Asthma symptoms vary from person to person. You may have infrequent asthma attacks, have symptoms only at certain times — such as when exercising — or have symptoms all the time.
+        \n\nAsthma signs and symptoms include:
+        \nShortness of breath
+        Chest tightness or pain
+        Wheezing when exhaling, which is a common sign of asthma in children
+        Trouble sleeping caused by shortness of breath, coughing or wheezing
+        Coughing or wheezing attacks that are worsened by a respiratory virus, such as a cold or the flucause the skin to become dry, leading to damage and inflammation in the skin. New research suggests that inflammation directly triggers sensations of itch which in turn cause the patient to scratch. This leads to further damage of the skin as well as increased risk for infection with bacteria.
+    </string>
+
+    <string name="app_info">
+        [Name of smart inhaler] is a smart inhaler that integrates connectivity with a mobile app and it is built with sensor technology that predicts asthma attacks based on an individual’s specific triggers, thus allowing the patient to forestall them.
+    </string>
+</resources>
