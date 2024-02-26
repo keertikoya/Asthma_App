@@ -12,6 +12,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.content.Context;
+
 
 public class ManageActivity extends AppCompatActivity {
 
@@ -40,40 +42,33 @@ public class ManageActivity extends AppCompatActivity {
         dropdownDust = findViewById(R.id.dust_spinner);
         dropdownWeather = findViewById(R.id.weather_spinner);
 
-        Intent intent = getIntent();
-        String pollenValue = intent.getStringExtra("Pollen");
-        String dustValue = intent.getStringExtra("Dust");
-        String smokeValue = intent.getStringExtra("Smoke");
-        String weatherValue = intent.getStringExtra("Weather");
+//        retrieveAndSetSavedOption(dropdownPollen, "Pollen");
+//        retrieveAndSetSavedOption(dropdownDust, "Dust");
+//        retrieveAndSetSavedOption(dropdownSmoke, "Smoke");
+//        retrieveAndSetSavedOption(dropdownWeather, "Weather");
 
-        // Set the retrieved values in the spinners
+        SharedPreferences preferences = getApplicationContext().getSharedPreferences(
+                getApplicationContext().getPackageName() + "_preferences",
+                Context.MODE_PRIVATE
+        );
+        String pollenValue = preferences.getString("Pollen", null);
+        String dustValue = preferences.getString("Dust", null);
+        String smokeValue = preferences.getString("Smoke", null);
+        String weatherValue = preferences.getString("Weather", null);
+
         setSpinnerSelection(dropdownPollen, pollenValue);
         setSpinnerSelection(dropdownDust, dustValue);
         setSpinnerSelection(dropdownSmoke, smokeValue);
         setSpinnerSelection(dropdownWeather, weatherValue);
 
-        // Spinner options
-        String[] options = {"Option 1", "Option 2", "Option 3"}; // Replace with your desired options
-
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, options);
-
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        retrieveAndSetSavedOption(dropdownSmoke, "selected_option_1");
-        retrieveAndSetSavedOption(dropdownPollen, "selected_option_2");
-        retrieveAndSetSavedOption(dropdownDust, "selected_option_3");
-        retrieveAndSetSavedOption(dropdownWeather, "selected_option_4");
-
         // Save Changes button code
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveAndDisplayOption(dropdownPollen, "selected_option_2");
-                saveAndDisplayOption(dropdownDust, "selected_option_3");
-                saveAndDisplayOption(dropdownSmoke, "selected_option_1");
-                saveAndDisplayOption(dropdownWeather, "selected_option_4");
+                saveAndDisplayOption(dropdownPollen, "Pollen");
+                saveAndDisplayOption(dropdownDust, "Dust");
+                saveAndDisplayOption(dropdownSmoke, "Smoke");
+                saveAndDisplayOption(dropdownWeather, "Weather");
             }
         });
 
@@ -128,7 +123,7 @@ public class ManageActivity extends AppCompatActivity {
         saveOption(preferenceKey, selectedOption);
 
         // Display a toast with the selected option
-        Toast.makeText(ManageActivity.this, "Option saved: " + selectedOption, Toast.LENGTH_SHORT).show();
+        Toast.makeText(ManageActivity.this, "Change saved: " + selectedOption, Toast.LENGTH_SHORT).show();
     }
 
     private void saveOption(String preferenceKey, String selectedOption) {
@@ -139,17 +134,17 @@ public class ManageActivity extends AppCompatActivity {
         editor.apply();
     }
 
-    private void retrieveAndSetSavedOption(Spinner dropdown, String preferenceKey) {
-        // Retrieve the saved option from SharedPreferences
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String savedOption = preferences.getString(preferenceKey, null);
-
-        // Set the saved option in the Spinner if it exists
-        if (savedOption != null) {
-            int position = getIndexForOption(dropdown, savedOption);
-            dropdown.setSelection(position);
-        }
-    }
+//    private void retrieveAndSetSavedOption(Spinner dropdown, String preferenceKey) {
+//        // Retrieve the saved option from SharedPreferences
+//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        String savedOption = preferences.getString(preferenceKey, null);
+//
+//        // Set the saved option in the Spinner if it exists
+//        if (savedOption != null) {
+//            int position = getIndexForOption(dropdown, savedOption);
+//            dropdown.setSelection(position);
+//        }
+//    }
 
     private int getIndexForOption(Spinner dropdown, String option) {
         // Get the index of the selected option in the Spinner's adapter
