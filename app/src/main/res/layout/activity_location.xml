@@ -60,7 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter_bold"
-                    android:text="Fremont, CA"
+                    android:text="Hayward, California"
                     android:textColor="@color/darkblue"
                     android:textSize="25sp" />
 

@@ -23,7 +23,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter"
+                    android:fontFamily="@font/inter_bold"
                     android:text="Smart Inhaler"
                     android:textColor="@color/white"
                     android:textSize="30sp" />

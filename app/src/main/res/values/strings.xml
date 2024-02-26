@@ -53,4 +53,8 @@
     <string name="app_info">
         [Name of smart inhaler] is a smart inhaler that integrates connectivity with a mobile app and it is built with sensor technology that predicts asthma attacks based on an individual’s specific triggers, thus allowing the patient to forestall them.
     </string>
+
+
+    <string name="saveChanges">SAVE CHANGES</string>
+
 </resources>
