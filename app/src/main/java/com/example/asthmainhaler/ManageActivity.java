@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -26,6 +28,7 @@ public class ManageActivity extends AppCompatActivity {
     Spinner dropdownDust;
     Spinner dropdownWeather;
 
+    TextView pollenTriggersCountTextView, dustTriggersCountTextView, smokeTriggersCountTextView, weatherTriggersCountTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,7 @@ public class ManageActivity extends AppCompatActivity {
                 getApplicationContext().getPackageName() + "_preferences",
                 Context.MODE_PRIVATE
         );
+
         String pollenValue = preferences.getString("Pollen", null);
         String dustValue = preferences.getString("Dust", null);
         String smokeValue = preferences.getString("Smoke", null);
@@ -56,6 +60,31 @@ public class ManageActivity extends AppCompatActivity {
         setSpinnerSelection(dropdownSmoke, smokeValue);
         setSpinnerSelection(dropdownWeather, weatherValue);
 
+        pollenTriggersCountTextView = findViewById(R.id.pollen_triggers_count);
+        dustTriggersCountTextView = findViewById(R.id.dust_triggers_count);
+        smokeTriggersCountTextView = findViewById(R.id.smoke_triggers_count);
+        weatherTriggersCountTextView = findViewById(R.id.weather_triggers_count);
+
+        // Fetch trigger counts from Intent
+        Intent intent = getIntent();
+        int pollenCount = intent.getIntExtra("pollenCount", 0);
+        int dustCount = intent.getIntExtra("dustCount", 0);
+        int smokeCount = intent.getIntExtra("smokeCount", 0);
+        int weatherCount = intent.getIntExtra("weatherCount", 0);
+
+        pollenTriggersCountTextView = findViewById(R.id.pollen_triggers_count);
+        pollenTriggersCountTextView.setText(getString(R.string.likely_triggers_label, pollenCount));
+
+        dustTriggersCountTextView = findViewById(R.id.dust_triggers_count);
+        dustTriggersCountTextView.setText(getString(R.string.likely_triggers_label, dustCount));
+
+        smokeTriggersCountTextView = findViewById(R.id.smoke_triggers_count);
+        smokeTriggersCountTextView.setText(getString(R.string.likely_triggers_label, smokeCount));
+
+        weatherTriggersCountTextView = findViewById(R.id.weather_triggers_count);
+        weatherTriggersCountTextView.setText(getString(R.string.likely_triggers_label, weatherCount));
+
+
         // Save Changes button code
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +93,9 @@ public class ManageActivity extends AppCompatActivity {
                 saveAndDisplayOption(dropdownDust, "Dust");
                 saveAndDisplayOption(dropdownSmoke, "Smoke");
                 saveAndDisplayOption(dropdownWeather, "Weather");
+
+                Log.d("ManageActivity", "calling update trigger count");
+
             }
         });
 
@@ -126,4 +158,5 @@ public class ManageActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = (ArrayAdapter<String>) dropdown.getAdapter();
         return adapter.getPosition(option);
     }
+
 }

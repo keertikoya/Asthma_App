@@ -112,7 +112,7 @@
                         </LinearLayout>
 
                         <TextView
-                            android:id="@+id/pollen_triggers"
+                            android:id="@+id/pollen_triggers_count"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
@@ -169,7 +169,7 @@
                         </LinearLayout>
 
                         <TextView
-                            android:id="@+id/dust_triggers"
+                            android:id="@+id/dust_triggers_count"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
@@ -226,7 +226,7 @@
                         </LinearLayout>
 
                         <TextView
-                            android:id="@+id/smoke_triggers"
+                            android:id="@+id/smoke_triggers_count"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
@@ -283,7 +283,7 @@
                         </LinearLayout>
 
                         <TextView
-                            android:id="@+id/weather_triggers"
+                            android:id="@+id/weather_triggers_count"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
@@ -380,7 +380,5 @@
         </LinearLayout>
 
     </RelativeLayout>
-
-
 
 </FrameLayout>
