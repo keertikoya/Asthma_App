@@ -42,11 +42,6 @@ public class ManageActivity extends AppCompatActivity {
         dropdownDust = findViewById(R.id.dust_spinner);
         dropdownWeather = findViewById(R.id.weather_spinner);
 
-//        retrieveAndSetSavedOption(dropdownPollen, "Pollen");
-//        retrieveAndSetSavedOption(dropdownDust, "Dust");
-//        retrieveAndSetSavedOption(dropdownSmoke, "Smoke");
-//        retrieveAndSetSavedOption(dropdownWeather, "Weather");
-
         SharedPreferences preferences = getApplicationContext().getSharedPreferences(
                 getApplicationContext().getPackageName() + "_preferences",
                 Context.MODE_PRIVATE
@@ -71,15 +66,6 @@ public class ManageActivity extends AppCompatActivity {
                 saveAndDisplayOption(dropdownWeather, "Weather");
             }
         });
-
-        // Save Changes button code
-//        saveButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(ManageActivity.this, HomeActivity.class);
-//                startActivity(intent);
-//            }
-//        });
 
         // User Profile button code (in navbar)
         userButton.setOnClickListener(new View.OnClickListener() {
@@ -134,17 +120,6 @@ public class ManageActivity extends AppCompatActivity {
         editor.apply();
     }
 
-//    private void retrieveAndSetSavedOption(Spinner dropdown, String preferenceKey) {
-//        // Retrieve the saved option from SharedPreferences
-//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        String savedOption = preferences.getString(preferenceKey, null);
-//
-//        // Set the saved option in the Spinner if it exists
-//        if (savedOption != null) {
-//            int position = getIndexForOption(dropdown, savedOption);
-//            dropdown.setSelection(position);
-//        }
-//    }
 
     private int getIndexForOption(Spinner dropdown, String option) {
         // Get the index of the selected option in the Spinner's adapter

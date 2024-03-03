@@ -21,11 +21,13 @@
 
                 <ImageButton
                     android:id="@+id/back_button"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="30dp"
-                    android:background="@drawable/back_arrow_white" />
+                    android:background="@drawable/back_arrow_white"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -66,6 +68,7 @@
 
 
             <LinearLayout
+                android:id="@+id/submitButton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
@@ -76,47 +79,49 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Location:"
-                    android:textSize="20sp"
                     android:fontFamily="@font/inter_bold"
-                    android:textColor="@color/darkblue" />
+                    android:text="Location:"
+                    android:textColor="@color/darkblue"
+                    android:textSize="20sp" />
 
                 <EditText
+                    android:id="@+id/location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/location"
-                    android:hint="Enter location here..."
-                    android:textColor="@color/purple"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/inter"
-                    android:layout_marginTop="5dp"/>
+                    android:hint="Enter location here..."
+                    android:minHeight="48dp"
+                    android:textColor="@color/purple" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Date:"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/inter_bold"
                     android:layout_marginTop="20dp"
-                    android:textColor="@color/darkblue" />
+                    android:fontFamily="@font/inter_bold"
+                    android:text="Date:"
+                    android:textColor="@color/darkblue"
+                    android:textSize="20sp" />
 
                 <EditText
                     android:id="@+id/date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/inter"
                     android:hint="Enter date here..."
                     android:inputType="date"
-                    android:textColor="@color/purple"
-                    android:fontFamily="@font/inter"
-                    android:layout_marginTop="5dp"/>
+                    android:minHeight="48dp"
+                    android:textColor="@color/purple" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Likely Trigger:"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/inter_bold"
                     android:layout_marginTop="20dp"
-                    android:textColor="@color/darkblue" />
+                    android:fontFamily="@font/inter_bold"
+                    android:text="Likely Trigger:"
+                    android:textColor="@color/darkblue"
+                    android:textSize="20sp" />
 
                 <Spinner
                     android:id="@+id/trigger_spinner"
