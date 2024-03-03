@@ -284,7 +284,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter"
-                            android:text="Surrounding level: XX"
+                            android:text="Surrounding level: 60%"
                             android:textColor="@color/white"
                             android:textSize="15sp" />
 
@@ -302,7 +302,6 @@
                 </LinearLayout>
 
             </ScrollView>
-
 
         </LinearLayout>
 
@@ -366,7 +365,5 @@
         </LinearLayout>
 
     </RelativeLayout>
-
-
 
 </FrameLayout>

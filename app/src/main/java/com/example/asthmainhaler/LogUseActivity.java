@@ -64,7 +64,7 @@ public class LogUseActivity extends AppCompatActivity {
                 }
 
                 increaseLikelyTriggersCount();
-                //updateLikelyTriggersCountDisplay();
+
                 Log.d("LogUseActivity", "Saving selected values: " + selectedLocation + ", " + selectedDate + ", " + selectedTrigger);
                 saveSelection();
 
