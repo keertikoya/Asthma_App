@@ -60,7 +60,21 @@
                 android:textColor="@color/darkblue"
                 android:textSize="17sp" />
 
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Weather"
+                android:onClick="weatherButton"/>
 
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="150dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvResult" />
+            </ScrollView>
         </LinearLayout>
 
         <LinearLayout

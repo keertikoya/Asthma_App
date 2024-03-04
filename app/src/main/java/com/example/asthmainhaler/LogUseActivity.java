@@ -33,6 +33,8 @@ public class LogUseActivity extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
 
+    int pollenCount, dustCount, smokeCount, weatherCount;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +49,7 @@ public class LogUseActivity extends AppCompatActivity {
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
+
         // Submit button code
         logUseButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,10 +63,23 @@ public class LogUseActivity extends AppCompatActivity {
                     return;
                 }
 
+                increaseLikelyTriggersCount();
+
                 Log.d("LogUseActivity", "Saving selected values: " + selectedLocation + ", " + selectedDate + ", " + selectedTrigger);
                 saveSelection();
-                Intent intent = new Intent(LogUseActivity.this, TrackActivity.class);
-                startActivity(intent);
+
+                Intent intent1 = new Intent(LogUseActivity.this, TrackActivity.class);
+                startActivity(intent1);
+                finish();
+
+
+                Intent intent2 = new Intent(LogUseActivity.this, ManageActivity.class);
+                // Pass counts to ManageActivity
+                intent2.putExtra("pollenCount", pollenCount);
+                intent2.putExtra("dustCount", dustCount);
+                intent2.putExtra("smokeCount", smokeCount);
+                intent2.putExtra("weatherCount", weatherCount);
+                startActivity(intent2);
             }
         });
 
@@ -101,4 +117,46 @@ public class LogUseActivity extends AppCompatActivity {
         editor.putString("asthmaLog", updatedJson);
         editor.apply();
     }
+
+    private void increaseLikelyTriggersCount() {
+        // Fetch the existing counts based on the selected trigger
+        pollenCount = sharedPreferences.getInt("pollenTriggersCount", 0);
+        dustCount = sharedPreferences.getInt("dustTriggersCount", 0);
+        smokeCount = sharedPreferences.getInt("smokeTriggersCount", 0);
+        weatherCount = sharedPreferences.getInt("weatherTriggersCount", 0);
+
+        // Increment the count based on the selected trigger
+        if ("pollen".equalsIgnoreCase(selectedTrigger)) {
+            pollenCount++;
+        } else if ("dust".equalsIgnoreCase(selectedTrigger)) {
+            dustCount++;
+        } else if ("smoke".equalsIgnoreCase(selectedTrigger)) {
+            smokeCount++;
+        } else if ("weather".equalsIgnoreCase(selectedTrigger)) {
+            weatherCount++;
+        }
+
+        // Save the updated counts back to preferences
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("pollenTriggersCount", pollenCount);
+        editor.putInt("dustTriggersCount", dustCount);
+        Log.d("hi", "please bro: " + dustCount);
+        editor.putInt("smokeTriggersCount", smokeCount);
+        editor.putInt("weatherTriggersCount", weatherCount);
+        editor.apply();
+    }
+
+    private void updateLikelyTriggersCountDisplay() {
+        // Fetch the updated counts
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        int pollenCount = preferences.getInt("pollenTriggersCount", 0);
+        int dustCount = preferences.getInt("dustTriggersCount", 0);
+        int smokeCount = preferences.getInt("smokeTriggersCount", 0);
+        int weatherCount = preferences.getInt("weatherTriggersCount", 0);
+
+        Log.d("Log Use Activity", "Dust Count: " + dustCount);
+
+    }
+
 }

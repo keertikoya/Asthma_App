@@ -5,14 +5,11 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
@@ -60,43 +57,47 @@
 
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"/>
+                android:layout_height="430dp"
+                android:layout_weight="1"
+                android:fillViewport="true">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginTop="0.5dp"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/track_log_use_button"
-                    android:layout_width="250dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/purple"
-                    android:fontFamily="@font/inter_semibold"
-                    android:padding="10dp"
-                    android:text="Log New Use"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:orientation="vertical">
 
-            </LinearLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="30dp" />
 
+                    <Button
+                        android:id="@+id/track_log_use_button"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/purple"
+                        android:fontFamily="@font/inter_semibold"
+                        android:padding="10dp"
+                        android:text="Log New Use"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:layout_gravity="center_horizontal"/>
+                </LinearLayout>
+            </ScrollView>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:background="@color/purple"
             android:orientation="horizontal"
-            android:layout_alignParentBottom="true"
             android:paddingTop="10dp"
-            android:paddingBottom="10dp">
+            android:paddingBottom="5dp">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -127,7 +128,6 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@drawable/home_white" />
-
             </LinearLayout>
 
             <LinearLayout
@@ -143,13 +143,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@drawable/info_white" />
-
             </LinearLayout>
-
         </LinearLayout>
-
     </RelativeLayout>
-
-
-
 </FrameLayout>

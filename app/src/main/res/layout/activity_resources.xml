@@ -21,31 +21,40 @@
 
                 <ImageButton
                     android:id="@+id/back_button"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="30dp"
                     android:background="@drawable/back_arrow_white" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:orientation="horizontal"
-                    android:padding="30dp">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter_bold"
+                        android:paddingLeft="30dp"
+                        android:paddingTop="30dp"
                         android:text="Smart Inhaler"
                         android:textColor="@color/white"
                         android:textSize="30sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/purple"
+                    android:orientation="horizontal"
+                    android:paddingLeft="30dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
+                        android:layout_marginStart="0dp"
                         android:fontFamily="@font/inter"
+                        android:paddingBottom="10dp"
                         android:text="Resources"
                         android:textColor="@color/white"
                         android:textSize="29sp" />
@@ -67,13 +76,14 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/inter_bold"
-                android:text="Learn about Asthma"
+                android:text="Learn About Asthma"
                 android:textColor="@color/white"
                 android:textSize="23sp" />
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:paddingTop="30dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"

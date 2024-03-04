@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,7 +18,8 @@
                 android:layout_height="wrap_content"
                 android:background="@color/purple"
                 android:orientation="horizontal"
-                android:padding="30dp">
+                android:paddingLeft="30dp"
+                android:paddingTop="30dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -28,15 +29,25 @@
                     android:textColor="@color/white"
                     android:textSize="30sp" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/purple"
+                android:orientation="horizontal"
+                android:paddingLeft="30dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/inter"
+                    android:singleLine="true"
                     android:text="Location"
                     android:textColor="@color/white"
                     android:textSize="30sp" />
-
             </LinearLayout>
 
             <LinearLayout
@@ -77,7 +88,8 @@
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="460dp">
+                android:layout_height="340dp"
+                android:fillViewport="true">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -293,7 +305,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter"
-                            android:text="Warning level: YY"
+                            android:text="Warning level: 60%"
                             android:textColor="@color/white"
                             android:textSize="15sp" />
 
@@ -303,15 +315,14 @@
 
             </ScrollView>
 
-
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:background="@color/purple"
             android:orientation="horizontal"
-            android:layout_alignParentBottom="true"
             android:paddingTop="10dp"
             android:paddingBottom="10dp">
 
@@ -366,7 +377,5 @@
         </LinearLayout>
 
     </RelativeLayout>
-
-
 
 </FrameLayout>
